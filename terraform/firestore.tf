@@ -1,9 +1,15 @@
 resource "null_resource" "enable_firestore" {
+  triggers = {
+    project = google_project.project.number
+  }
+
   provisioner "local-exec" {
     command = "make firestore"
   }
 
-  depends_on = [google_firebase_project_location.default]
+  depends_on = [
+    google_firebase_project_location.default,
+  ]
 }
 
 resource "google_firestore_index" "trainings_user_time" {
