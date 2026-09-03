@@ -1,10 +1,8 @@
 ## Required software
 
-* Terraform
+* Terraform (tested on v0.12.24)
 * gcloud CLI
 * Docker (with daemon running)
-
-This setup was tested on the following versions:
 
 ```
 Terraform v0.12.24
@@ -19,10 +17,11 @@ core 2020.04.24
 
 1. Authorize in gcloud CLI.
 
-This projects aims for setup as easy as possible. Default application login is not recommended for production use.
+This projects aims to allow as easy as possible setup. Default application login is not recommended for production use.
 
 ```
 gcloud auth login
+gcloud config set account
 gcloud auth application-default login
 ```
 
@@ -31,12 +30,6 @@ gcloud auth application-default login
 ```bash
 make
 ```
-
-You will be asked to pick a region for Cloud Run and Firebase. If you want to use Cloud Run region different than
-`europe-west1`, you need to **commit** changes in following files:
-
-- `./scripts/deploy.sh`
-- `./web/firebase.json`
 
 3. Make sure you enable `Email/Password` authentication provider in Firebase as described in the `make` output.
 
