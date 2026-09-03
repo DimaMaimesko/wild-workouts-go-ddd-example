@@ -28,3 +28,4 @@ terraform/cloud-builders-community
 !/web/src/repositories/clients/users/src/
 
 /service-account-file.json
+.idea
